@@ -72,7 +72,13 @@ namespace Deadline_5
         {
             passwordTXT.TextChanged += (s, e) => { passwordTXT.UseSystemPasswordChar = true; };
             showButton.MouseDown += (s, e) => { passwordTXT.UseSystemPasswordChar = false; };
-            showButton.MouseUp += (s, e) => { passwordTXT.UseSystemPasswordChar = true; };
+            showButton.MouseUp += (s, e) => 
+            {
+                if (passwordTXT.Text == "Введите пароль")
+                    passwordTXT.UseSystemPasswordChar = false;
+                else
+                    passwordTXT.UseSystemPasswordChar = true;
+            };
         }
 
         private void UsernameTXT_TextChanged(object sender, EventArgs e)
